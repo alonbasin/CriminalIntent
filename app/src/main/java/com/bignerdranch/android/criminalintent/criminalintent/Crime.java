@@ -13,9 +13,13 @@ public class Crime {
     private boolean mSolved;
 
     public Crime() {
-        //Generate unique identifier
         mId = UUID.randomUUID();
         mDate = Calendar.getInstance().getTime();
+    }
+
+    @Override
+    public String toString() {
+        return getTitle();
     }
 
     public String getTitle() {
@@ -48,8 +52,4 @@ public class Crime {
         mSolved = solved;
     }
 
-    @Override
-    public String toString() {
-        return getTitle();
-    }
 }
