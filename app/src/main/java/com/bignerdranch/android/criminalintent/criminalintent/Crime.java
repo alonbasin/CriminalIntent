@@ -1,5 +1,6 @@
 package com.bignerdranch.android.criminalintent.criminalintent;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
@@ -10,6 +11,10 @@ public class Crime {
     private String mTitle;
     private Date mDate;
     private boolean mSolved;
+//    private Calendar mCalendar = Calendar.getInstance();
+
+//    int mHour = mCalendar.get(Calendar.HOUR_OF_DAY);
+//    int mMinute = mCalendar.get(Calendar.MINUTE);
 
     public Crime() {
         mId = UUID.randomUUID();
@@ -50,10 +55,16 @@ public class Crime {
         mSolved = solved;
     }
 
-//    public String formatDate() {
-//        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMM d, yyyy");
-//        String formatDate = sdf.format(mDate);
-//        return formatDate;
-//    }
+    public String formatDate() {
+        SimpleDateFormat sdf = new SimpleDateFormat("EEEE, MMM d, yyyy");
+        String formatDate = sdf.format(mDate);
+        return formatDate;
+    }
+
+    public String formatTime() {
+        SimpleDateFormat sdf = new SimpleDateFormat("H:mm");
+        String formatTime = sdf.format(mDate);
+        return formatTime;
+    }
 
 }
