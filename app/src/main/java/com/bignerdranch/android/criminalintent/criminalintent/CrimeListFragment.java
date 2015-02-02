@@ -23,8 +23,7 @@ public class CrimeListFragment extends ListFragment {
         getActivity().setTitle(R.string.crimes_title);
         mCrimes = CrimeLab.get(getActivity()).getCrimes();
 
-//        ArrayAdapter<Crime> adapter =
-//                new ArrayAdapter<Crime>(getActivity(), android.R.layout.simple_list_item_1, mCrimes);
+//        ArrayAdapter<Crime> adapter = new ArrayAdapter<Crime>(getActivity(), android.R.layout.simple_list_item_1, mCrimes);
         CrimeAdapter adapter = new CrimeAdapter(mCrimes);
         setListAdapter(adapter);
     }
@@ -36,9 +35,10 @@ public class CrimeListFragment extends ListFragment {
 //      Log.d(TAG, c.getTitle() + " was clicked");
 
         Intent i = new Intent(getActivity(), CrimeActivity.class);
-
+        //i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
         startActivity(i);
     }
+
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
         public CrimeAdapter(ArrayList<Crime> crimes) {

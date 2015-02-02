@@ -1,7 +1,7 @@
 package com.bignerdranch.android.criminalintent.criminalintent;
 
-import android.support.v4.app.Fragment;
 
+import android.support.v4.app.Fragment;
 
 public class CrimeListActivity extends SingleFragmentActivity {
 

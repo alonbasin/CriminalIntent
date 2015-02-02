@@ -19,7 +19,7 @@ public class Crime {
 
     @Override
     public String toString() {
-        return getTitle();
+        return mTitle;
     }
 
     public String getTitle() {
