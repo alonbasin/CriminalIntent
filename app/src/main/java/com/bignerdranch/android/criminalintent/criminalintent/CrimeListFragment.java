@@ -34,11 +34,16 @@ public class CrimeListFragment extends ListFragment {
         Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);
 //      Log.d(TAG, c.getTitle() + " was clicked");
 
-        Intent i = new Intent(getActivity(), CrimeActivity.class);
-        //i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
+        Intent i = new Intent(getActivity(), CrimePagerActivity.class);
+        i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());
         startActivity(i);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((CrimeAdapter)getListAdapter()).notifyDataSetChanged();
+    }
 
     private class CrimeAdapter extends ArrayAdapter<Crime> {
         public CrimeAdapter(ArrayList<Crime> crimes) {
@@ -56,7 +61,7 @@ public class CrimeListFragment extends ListFragment {
             TextView titleTextView = (TextView) convertView.findViewById(R.id.crime_list_item_titleTextView);
             titleTextView.setText(c.getTitle());
             TextView dateTextView = (TextView) convertView.findViewById(R.id.crime_list_item_dateTextView);
-            dateTextView.setText(c.getDate());
+            dateTextView.setText(c.getDate().toString());
             CheckBox solvedCheckBox = (CheckBox) convertView.findViewById(R.id.crime_list_item_solvedCheckBox);
             solvedCheckBox.setChecked(c.isSolved());
 
